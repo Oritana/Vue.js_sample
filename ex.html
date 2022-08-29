@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue.js sample</title>
+</head>
+    <body>
+        <h2>いろいろな型のデータを表示する例</h2>
+        <div id="app">
+            <p>{{myNumber}}</p>
+            <p>{{myText}}</p>
+            <p>{{myBool}}</p>
+        </div>
+
+        <script>   
+            new Vue({
+				el: '#app',
+				data: {
+                    myNumber:1234,
+					myText:'<h1>Hello!!!</h1>',
+                    myBool:true
+				}
+			})
+        </script>
+    </body>
+</html>
