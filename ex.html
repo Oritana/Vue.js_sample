@@ -9,16 +9,15 @@
     <body>
         <h2>配列の値を表示する例</h2>
         <div id="app">
-            <!-- 配列の値を表示する例 -->
-            <p>{{myArray}}</p>
-            <p>{{myArray[0]}}</p>
+            <p>{{myTea}}</p>
+            <p>{{myTea.name}}\{{myTea.price}}</p>
         </div>
 
         <script>   
             new Vue({
 				el: '#app',
 				data: {
-                    myArray:['ダージリン','アールグレイ','セイロン']
+                    myTea:{name:'ダージリン',price:600}
 				}
 			})
         </script>
