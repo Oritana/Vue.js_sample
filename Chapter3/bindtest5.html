@@ -19,8 +19,9 @@
 			}
 		</style>
 
-		<div id="app">			
-			<p class="strike-through">直接クラスを指定</p>
+		<div id="app">
+			<!-- v-bindでクラスを指定する例 -->			
+			<p class="strike-through">直接クラスを指定</p>   <!-- p.strike-through　Tabキー　でクラスタグができる -->
 			<p v-bind:class="myClass">v-bindでクラスを指定</p>
 			<p v-bind:class="[myClass, darkClass]">v-bindで複数のクラスを指定</p>
 			<p v-bind:class="{'strike-through': isON}">データでクラスをONOFF</p>
@@ -32,7 +33,7 @@
 				data: {
 					myClass: 'strike-through',
 					darkClass: 'dark',
-					isON: true
+					isON: true   //trueの時クラス指定される
 				}
 			})
 		</script>
