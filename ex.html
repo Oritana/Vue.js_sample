@@ -7,7 +7,7 @@
     <title>Vue.js sample</title>
 </head>
     <body>
-        <h2>クラスを指定する例</h2>
+        <h2>入力した文字列を表示する例</h2>
         <style>
 			.strike-through {
 				text-decoration: line-through;
@@ -19,19 +19,15 @@
 		</style>
 
         <div id="app">
-           <p class="strike-through">直接クラスを指定</p>
-           <p v-bind:class="myClass">v-bindでクラスを指定</p>
-           <p v-bind:class="[myClass,darkClass]">v-bindで複数のクラスを指定</p>
-           <p v-bind:class="{'strike-through':isON}">データでクラスをONOFF</p>
+           <input v-model="myName" placeholder="お名前">
+           <p>私は、{{myName}}です。</p>
         </div>
 
         <script>
             new Vue({
 				el: '#app',
 				data: {
-                    myClass:'strike-through',
-                    darkClass:'dark',
-                    isON:true
+                   myName:''
 				}
 			})
         </script>
