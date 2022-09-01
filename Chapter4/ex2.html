@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js 演習問題</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src=
+      "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+  </head>
+  
+  <body>
+    <h2>入力した数値の四則検算</h2>
+    <div id="app">
+      <label>数値１ = <input type="number" v-model="number1"></label>
+      <br>
+      <label>数値２ = <input type="number" v-model="number2"></label>
+      <p>たし算：{{number1}} + {{number2}} = {{number1 + number2}}</p>  <!-- ※確認※ 問題では 1330 になっている -->
+      <p>ひき算：{{number1}} - {{number2}} = {{number1 - number2}}</p>
+      <p>かけ算：{{number1}} * {{number2}} = {{number1 * number2}}</p>
+      <p>わり算：{{number1}} / {{number2}} = {{number1 / number2}}</p>  <!-- 最初は0同士の乗算なので Not a Number の略 NaNが表示される-->
+      <p>剰余：{{number1}} % {{number2}} = {{number1 % number2}}</p>    <!-- 最初は0同士の除算なので Not a Number の略 NaNが表示される-->
+    </div>
+    
+    <script>
+      new Vue({
+        el:'#app',
+        data:{number1:0,
+              number2:0,
+            }
+    })
+    </script>
+  </body>
+</html>
