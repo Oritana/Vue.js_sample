@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js 演習問題</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src=
+      "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+  </head>
+  
+  <body>
+    <h2>入力した文章の検索</h2>
+    <div id="app">
+        <p>文章入力</p>
+        <textarea v-model="myText"></textarea>
+        <!-- フォーム入力とデータをつなげるときは、v-model -->
+        <p>検索文字列=<input v-model="search"></p>
+        <hr>
+        <p>文章は、「{{myText}}」</p>
+        <p>検索文字列は、{{search}}</p>
+        <p>文章の{{myText.indexOf(search)}}文字目にあります。</p>
+        <!-- 文字列検索時は、indexOf( )で検索 -->
+    </div>
+
+    <script>
+      new Vue({
+        /* elは、どのHTML要素とつながるのかを指定 */
+        el:'#app',
+        /* どんなデータがあるのかを指定 */
+        data:{
+            myText:'',      /* データの名前をプロパティ */
+            search:''
+        }
+    })
+    </script>
+
+  </body>
+</html>
