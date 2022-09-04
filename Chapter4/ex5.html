@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js 演習問題</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src=
+      "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+  </head>
+  
+  <body>
+    <h2>チェックボックスのONOFFを調べる例</h2>
+    <div id="app">
+        <p>旅行で行きたい場所チェック</p>
+        <!-- 複数のチェックボックスのv-modelに「同じプロパティ名を指定」して、１つのグループとして扱える。valueには違う値を指定 -->
+            <ol>
+            <!-- 番号付きリスト -->
+            <li><input type="checkbox" value="北海道" v-model="myChecks">北海道</li>
+            <li><input type="checkbox" value="関東" v-model="myChecks">関東</li>
+            <li><input type="checkbox" value="東北" v-model="myChecks">東北</li>
+            <li><input type="checkbox" value="東海" v-model="myChecks">東海</li>
+            <li><input type="checkbox" value="甲信越" v-model="myChecks">甲信越</li>
+            <li><input type="checkbox" value="中部" v-model="myChecks">中部</li>
+            <li><input type="checkbox" value="近畿" v-model="myChecks">近畿</li>
+            <li><input type="checkbox" value="北陸" v-model="myChecks">北陸</li>
+            <li><input type="checkbox" value="中国・四国" v-model="myChecks">中国・四国</li>
+            <li><input type="checkbox" value="九州・沖縄" v-model="myChecks">九州・沖縄</li>
+            </ol>
+        <p>チェックボックスは、{{myChecks}}</p>
+    </div>
+
+    <script>
+      new Vue({
+        el:'#app',
+        data:{
+            myChecks:[]
+        }
+    })
+    </script>
+  </body>
+</html>
