@@ -18,6 +18,7 @@
       </p>
       <p>実行する演算</p>
       <!-- v-modelでフォーム入力とデータをつなげる -->
+      <!-- ラジオボタン選択　/ valueに表示させたい演算記号を指定 /v-modelで同じプロパティ名を指定 -->
       <input type="radio" value="+" v-model="operator">たし算</input>
       <input type="radio" value="-" v-model="operator">ひき算</input>
       <input type="radio" value="*" v-model="operator">かけ算</input>
@@ -41,6 +42,7 @@
         },
         methods:{
           calc:function(number1,number2){
+            /* switch文で実行する計算式を記述 */
           switch(this.operator){
             case '+':this.answer = number1 + number2;
             break;
