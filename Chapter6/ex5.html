@@ -13,10 +13,13 @@
     <h2>オブジェクトの配列データを、リストで表示する例</h2>
     <div id="app">
         <table border="1">
+          <!-- タイトルを表の上に表示 -->
         <caption>東北６県基本情報</caption>
-        <tr>
+        <tr><!-- 表の'table row'の略で表の行部分(横方向)を指定するタグ -->
             <th>県名</th><th>人口</th>
+            <!-- 'table header'の略で表の見出しやタイトルとなるヘッダを作成するタグ -->
         </tr>
+        <!-- v-forでオブジェクト配列からデータを1つずつ取り出す -->
             <tr v-for="item in prefecture">
              <td>{{item.name}}</td>
              <td>{{item.population}}万人</td>
