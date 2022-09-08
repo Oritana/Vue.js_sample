@@ -12,8 +12,10 @@
   <body>
     <h2>trueのときだけ表示する例</h2>
     <div id="app">
-        <!-- v-if="条件" / 条件を満たすときだけ表示-->
+        <!-- v-modelで入力フォームとデータをつなぐ -->
         <input type="checkbox" v-model="myVisible">Google本社
+        <!-- v-if="条件" / Google本社にチェックが入ったら(条件を満たす時だけ)表示 -->
+        <!-- v-bindでimg要素をデータで指定 -->
         <p v-if="myVisible"><img v-bind:src="googleImg"></p>
     </div>
 
@@ -21,8 +23,8 @@
       new Vue({
         el: '#app',
         data: {
-          myVisible: false,
-          googleImg: 'Google.jpg'
+          myVisible: false,           /* 最初は非表示 */
+          googleImg: 'Google.jpg'     /*  v-bindでimg要素をデータで指定*/
         }
       })
     </script>
