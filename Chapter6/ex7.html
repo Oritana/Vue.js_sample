@@ -28,12 +28,12 @@
       new Vue({
         el: '#app',
         data: {
-          prefecture: ['北海道', '青森県'],
-          name:''            /* v-modelでフォーム入力とつながっている / nameに入力されたものが反映される */
+          prefecture: ['北海道', '青森県'],         /* 配列 */
+          name:''                                  /* v-modelでフォーム入力とつながっている / nameに入力されたものが反映される */
         },
-        methods: {
-            addLast:function(){
-                this.prefecture.push(this.name);  /* pushで配列の末尾にデータを追加する */
+        methods: {                                
+            addLast:function(){                   /* メソッド名:function() */
+                this.prefecture.push(this.name);  /* 処理内容 / inputで入力追加された時、pushで配列の末尾にデータを追加する */
             }
         }
       })
