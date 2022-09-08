@@ -14,6 +14,8 @@
     <div id="app">
         <h2>東北６県基本情報</h2>
         <ul>
+          <!-- v-forで配列から値を1つずつ取り出しながら表示を繰り返す -->
+          <!-- prefecture(オブジェクト配列)からitem(データ)を取り出す -->
             <li v-for="item in prefecture">県名：{{item.name}}、人口：{{item.population}}万人</li>
         </ul>
     </div>
@@ -22,6 +24,7 @@
       new Vue({
         el: '#app',
         data: {
+          /* オブジェクトの配列データ */
           prefecture: [
             {name: '青森県', population: 124.9},
             {name: '岩手県', population: 122.9},
