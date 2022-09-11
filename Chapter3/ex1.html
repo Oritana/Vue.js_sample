@@ -20,9 +20,9 @@
             <th>MicroSoft</th>
         </tr>
         <tr>
-            <td><img v-bind:src="fileName1"></img></td>
-            <td><img v-bind:src="fileName2"></img></td>
-            <td><img v-bind:src="fileName3"></img></td>
+            <td><a v-bind:href="Yahoo"><img v-bind:src="YahooLogo"></a></td>
+            <td><a v-bind:href="Google"><img v-bind:src="GoogleLogo"></a></td>
+            <td><a v-bind:href="Microsoft"><img v-bind:src="MicrosoftLogo"></a></td>
         </tr> 
     </table>
 </div>
@@ -31,9 +31,12 @@
   new Vue({
     el: '#app',
     data: {
-        fileName1:'Yahoo_logo.png',
-        fileName2:'Google_logo.png',
-        fileName3:'MS_logo.png'
+        Yahoo:'https://www.yahoo.co.jp/',
+        Google:'https://www.google.com',
+        Microsoft:'https://www.msn.com/ja-jp/',
+        YahooLogo: 'Yahoo_logo.png',
+				GoogleLogo: 'Google_logo.png',
+				MicrosoftLogo: 'MS_logo.png'
     }
       })
     </script>
