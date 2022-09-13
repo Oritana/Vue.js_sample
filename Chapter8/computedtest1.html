@@ -25,6 +25,7 @@
 				},
 				computed: {
 					// priceが変わったら、消費税込み金額を算出する
+					//computedで計算された戻り値がtaxIncludedに代入される
 					taxIncluded: function() {
 						return this.price * 1.08;
 					}
