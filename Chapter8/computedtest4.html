@@ -22,17 +22,24 @@
 				el: "#app",
 				data: {
 					findWord:'',
+					//items(配列)の添字[0],[1],[2],[3],[4]
 					items:['桃太郎','花咲かじいさん','浦島太郎','かぐや姫','かちかち山']
 				},
 				computed: {
 					// this.findWordが変わったら、その文字が含まれるリストを算出する
 					findItems: function() {
 						if (this.findWord) {
+							//真〇
+							//(function(value)はコールバック関数(無名関数)
+							//(value)の中にitemが1つずつ入っていく
 							return this.items.filter(function(value) {
-								return (value.indexOf(this.findWord) > -1);
+								return (value.indexOf(this.findWord) > -1); //(this.findWord) > -1 は配列の添字と比較
+								//(this.findWord)は、入力された文字
 							}, this);
+							//filterの第2引数は(this.findWord)のものですよと知らせる補足みたいなもの
+							//偽×
 						} else {
-							// this.findWordが空のときは、リストをそのまま返す
+							// this.findWord(検索文字)が空のときは、リストの中身をそのまま返す
 							return this.items;
 						}
 					}
