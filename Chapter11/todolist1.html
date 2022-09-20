@@ -12,6 +12,7 @@
 		<div id="app">
 			<div v-for="todo in todos">
 				<label>
+					<!-- v-modelで入力をつなぐv-forで一つずつ取り出されたodoのdoneを繋いている -->
 					<input type="checkbox" v-model="todo.done">
 					<span v-bind:class="{donestyle:todo.done}">{{todo.text}}</span>
 				</label>
@@ -20,6 +21,7 @@
 		</div>
 
 		<script>
+			//ToDoリスト1
 			new Vue({
 				el: '#app',
 				data: {
@@ -28,11 +30,13 @@
 						{done:false, text:'コーヒーを買う'}
 					]
 				},
+				//再計算したものをremaining(todoチェック済み)として返す
 				computed: {
 					remaining: function() {
+						//valに一つずつ取り出しながらtrueのものだけをfilterする
 						return this.todos.filter(function(val) {
 							return val.done;
-						}).length;
+						}).length;//チェックが入ったodoの個数を返す
 					}
 				}
 			})
