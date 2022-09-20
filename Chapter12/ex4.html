@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>vue.js 演習問題</title>
+    
+    <link rel="stylesheet" href="style.css" >
+    <script src=
+      "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+
+  </head>
+  
+  <body>
+    <h2>それぞれ別々にカウントするコンポーネントの例</h2>
+    <div id="app">
+      <!-- ボタンをクリックすると値が増減するコンポーネントを作る -->
+      <my-component></my-component>
+      <my-component></my-component>
+      <my-component></my-component>
+    </div>
+
+    <script>
+      //コンポーネントのオブジェクトを作成
+      var MyComponent = {
+        //カウンター　追加ボタン　減少ボタン　１０追加ボタン　(数値)　を表示
+        template: '<p class="my-comp">カウンター \
+          <button v-on:click="addOne">追加</button> \
+          <button v-on:click="subOne">減少</button> \
+          <button v-on:click="addTen">10追加</button> {{count}}</p>',
+          //コンポーネントの「data:」には、数を数える「count」プロパティを用意し、最初は「0」とする
+          data:function(){
+            return{
+            count:0
+          }
+        },
+        //コンポーネントの「methods:」には、countに1を足す「addOne」,countから1引く「subOne」,
+        //countに10ずつ足す「addTen」メソッドを用意
+        methods: {
+					addOne: function() {
+						this.count++;
+					},
+					subOne: function() {
+						this.count--;
+					},
+					addTen: function() {
+						this.count += 10;
+					}
+				},
+      }
+      
+      /* Vueインスタンス作成 */
+      new Vue({
+        el: '#app',
+        components: {
+          'my-component': MyComponent
+        }
+      })
+    </script>
+
+    <style>
+      .my-comp {
+        width: 400px;
+        background-color: #ffffe0;
+        border: solid;
+        border-color: darkorange;
+        border-radius: 8px;
+        padding: 8px;
+      }
+    </style>
+    
+  </body>
+</html>
