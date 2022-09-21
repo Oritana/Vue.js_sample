@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>vue.js 演習問題</title>
+    
+    <link rel="stylesheet" href="style.css" >
+    <script src=
+      "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+
+  </head>
+  
+  <body>
+    <h2>配列からコンポーネントを作って表示する例</h2>
+    <div id="app">
+      <!-- componentで同じような処理を行う部分を部品としてまとめる -->
+      <!-- <my-component></my-component> ←ここに部品が表示される -->
+      <!-- v-forを使ってmyArrayの配列データをあるだけ繰り返し表示し、
+          各データの名前を prefecture= ,population= を通してコンポーネントに渡す -->
+      <my-component v-for="(item,index) in myArray" 
+      v-bind:prefecture="item.prefecture" 
+      v-bind:population="item.population"></my-component>
+    </div>
+
+    <script>
+      //var コンポーネントのオブジェクト名= { template:'HTML部分'} でコンポーネントのオブジェクト作成
+      var PrefectureData = {
+        template:'<p class="my-comp">県名：{{prefecture}}  人口：{{population}}万人</p>',  //templateでどのように表示するかhtmlタグで用意
+        //propsオプションで、コンポーネントにHTMLタグから値を受け渡す
+        props:{
+            prefecture:String,   //プロパティ名(JS内なのでキャメルケース):データ型
+            population:String
+        },
+      }
+  
+      new Vue({
+        el: '#app',
+        data:{
+          //Vueインスタンスのdata:には、コンポーネントに渡す名前の配列myArrayを用意。
+          //この配列の個数だけコンポーネントが並べて表示される
+            myArray:[
+                    {prefecture:'青森県',population:124.9},
+                    {prefecture:'岩手県',population:122.9},
+                    {prefecture:'秋田県',population:96.9},
+                    {prefecture:'宮城県',population:230.6},
+                    {prefecture:'山形県',population:108},
+                    {prefecture:'福島県',population:184.8}
+                  ]
+        },
+        //コンポーネントのタグ名：コンポーネントのオブジェクト名
+        components:{
+            'my-component':PrefectureData       
+        }
+      })
+    </script>
+
+    <style>
+      .my-comp {
+        width: 300px;
+        background-color: #ffffe0;
+        border: solid;
+        border-color: darkorange;
+        border-radius: 8px;
+        padding: 8px;
+      }
+    </style>
+    
+  </body>
+</html>
