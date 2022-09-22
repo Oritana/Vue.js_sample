@@ -14,15 +14,18 @@
   <body>
     <h2>コンポーネントを作って表示する例</h2>
     <div id="app">
+      <!-- リスト表示 -->
         <ul>各国のあいさつ
-        <li>日本</li><greeting-jp></greeting-jp>
-        <li>アメリカ</li><greeting-en></greeting-en>
-        <li>フランス</li><greeting-fr></greeting-fr>
+        <li>日本</li><greeting-jp></greeting-jp>     <!-- コンポーネントの生成 jp:日本語 -->
+        <li>アメリカ</li><greeting-en></greeting-en> <!-- コンポーネントの生成 en:英語 -->
+        <li>フランス</li><greeting-fr></greeting-fr> <!-- コンポーネントの生成 fr:フランス語 -->
         </ul>
     </div>
 
     <script>
+      //コンポーネントオブジェクトの生成
       var GreetingJP = {
+        //template:にどのように表示するか記述
         template: '<p class="my-comp">こんにちは！！</p>'
       }
       var GreetingEN = {
@@ -31,12 +34,13 @@
       var GreetingFR = {
         template:'<p class="my-comp">Bonjour!!</p>'
       }
+      // Vueインスタンス生成
       new Vue({
         el: '#app',
         components: {
-          'greeting-jp': GreetingJP,
-          'greeting-en': GreetingEN,
-          'greeting-fr': GreetingFR
+          'greeting-jp': GreetingJP,   //コンポーネントのタグ名 : コンポーネントのオブジェクト
+          'greeting-en': GreetingEN,   //コンポーネントのタグ名 : コンポーネントのオブジェクト
+          'greeting-fr': GreetingFR    //コンポーネントのタグ名 : コンポーネントのオブジェクト
         }
       })
     </script>
