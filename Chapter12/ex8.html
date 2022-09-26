@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue.js 演習問題</title>
+		
+		<link rel="stylesheet" href="style.css" >
+		<script src=
+			"https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+		</script>
+
+	</head>
+	
+	<body>
+		<h2>propsで値を渡す</h2>
+		<div id="app">
+            <!-- component(my-product)で同じような処理を行う部分を部品としてまとめる -->
+            <!-- <my-product></my-product> ←ここに部品が表示される -->
+            <!-- v-forを使ってproductListの配列データをあるだけ繰り返し表示し、
+            各データの名前を name= ,price= を通してコンポーネントに渡す -->
+            <my-product v-for="(item, index) in productList" 
+          v-bind:name="item.name" v-bind:price="item.price">
+      </my-product>
+		</div>
+
+		<script>
+            //var コンポーネントのオブジェクト名= { template:'HTML部分'} でコンポーネントのオブジェクト作成
+			var MyProduct = {
+                //templateでどのように表示するかhtmlタグで用意
+				template: '<p class="my-comp">\
+          商品名：{{name}}、定価：{{price}} 円</p>',
+                //propsオプションで、コンポーネントにHTMLタグから値を受け渡す
+				//プロパティ名(JS内なのでキャメルケース):データ型
+                props: ['name', 'price']				
+			}
+			new Vue({
+				el: '#app',
+                data: {
+                //Vueインスタンスのdata:には、コンポーネントに渡す配列productListを用意。
+                //この配列の個数だけコンポーネントが並べて表示される
+                productList: [
+                {name: 'りんご', price: 120},
+                {name: 'みかん', price: 100},
+                {name: 'もも', price: 180},
+                {name: 'バナナ', price: 150},
+                {name: 'いちご', price: 250},
+                ],
+                },
+            components: {
+                //コンポーネントのタグ名：コンポーネントのオブジェクト名
+				'my-product': MyProduct
+				},
+			})
+		</script>
+		
+		<style>
+			.my-comp {
+				width: 300px;
+				background-color: #ffffe0;
+				border: solid;
+				border-color: darkorange;
+				border-radius: 8px;
+				padding: 8px;
+			}
+		</style>
+	</body>
+</html>
