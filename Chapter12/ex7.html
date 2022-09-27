@@ -25,7 +25,7 @@
 
     <script>
       //var コンポーネントのオブジェクト名= { template:'HTML部分'} でコンポーネントのオブジェクト作成
-      var PrefectureData = {
+      var prefectureData = {
         template:'<p class="my-comp">県名：{{prefecture}}  人口：{{population}}万人</p>',  //templateでどのように表示するかhtmlタグで用意
         //propsオプションで、コンポーネントにHTMLタグから値を受け渡す
         props:{
@@ -50,7 +50,7 @@
         },
         //コンポーネントのタグ名：コンポーネントのオブジェクト名
         components:{
-            'my-component':PrefectureData       
+            'my-component':prefectureData       
         }
       })
     </script>
